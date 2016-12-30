@@ -66,37 +66,19 @@ public class ContentDAO {
 
         Connection conn = getConnection();
 
-        //创建要放入StudentVO对象的List
         List<ContentVO> ls = new ArrayList<ContentVO>();
-        //创建一个StudenVO类型的变量
-        //注意！！！！！这里先不将它实例化(实例化指StudentVO studentVO = new StudentVO())
         ContentVO contentVO = null;
 
-        /*
-         * try{}中的语句可能会有异常，所以用try包裹，
-         * 如果出现异常，把它catch出来并打印异常信息
-         * 最后(finally语句块)关闭数据库连接
-         */
         try {
             String sql = "SELECT * FROM tb_course_info";
 
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            //查询后直接返回的结果是一个ResultSet对象，所以创建一个ResultSet对象保存查询结果
             ResultSet resultSet = preparedStatement.executeQuery(sql);
-
-            //将ResultSet对象中的每一条记录转化成StudentVO对象，并将该StudentVO加入到List中
-            //resultSet.next()每被调用一次，指针向下指一行，直到没有为止
             while (resultSet.next()) {
-                /*
-                 * 在这里将前面创建的StudentVO类型的变量实例化，
-                 * 并通过resultSet.get***()方法取出每一条记录里面对应的每一个值，
-                 * 然后传入StudentVO的构造函数
-                 */
                 contentVO = new ContentVO(
                         resultSet.getString("newsIconUrl"),
                         resultSet.getString("newsTitle"),
                         resultSet.getString("newsContent"));
-                //将创建好的StudentVO对象加入到List中
                 ls.add(contentVO);
             }
 
@@ -104,10 +86,35 @@ public class ContentDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            //关闭数据库连接
             closeConnection(conn);
         }
 
         return null;
+    }
+
+    public void updateAllNewsTitle(String updateString, int i) throws SQLException {
+        Connection conn = getConnection();
+
+        String sql = "Update tb_course_info SET newsTitle = ? WHERE id = ?";
+
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+        preparedStatement.setString(1, updateString);
+        preparedStatement.setInt(2, i);
+
+        preparedStatement.execute();
+    }
+
+    public void updateAllNewsContent(String updateString, int i) throws SQLException {
+        Connection conn = getConnection();
+
+        String sql = "Update tb_course_info SET newsContent = ? WHERE id = ?";
+
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+        preparedStatement.setString(1, updateString);
+        preparedStatement.setInt(2, i);
+
+        preparedStatement.execute();
     }
 }
