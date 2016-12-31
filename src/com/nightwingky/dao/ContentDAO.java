@@ -40,14 +40,14 @@ public class ContentDAO {
         Connection conn = getConnection();
 
         try {
-            String sql = "INSERT INTO tb_course_info(newsIconUrl, newsTitle, newsContent) " +
+            String sql = "INSERT INTO tb_shoppingcart_info(commodityImageURL, commodityTitle, commodityPrice) " +
                     "values (?, ?, ?)";
 
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
-            preparedStatement.setString(1, contentVO.getNewsIconUrl());
-            preparedStatement.setString(2, contentVO.getNewsTitle());
-            preparedStatement.setString(3, contentVO.getNewsContent());
+            preparedStatement.setString(1, contentVO.getContentImageURL());
+            preparedStatement.setString(2, contentVO.getContentTitle());
+            preparedStatement.setString(3, contentVO.getContentPrice());
 
             int count = preparedStatement.executeUpdate();
             if(count > 0) {
@@ -76,9 +76,9 @@ public class ContentDAO {
             ResultSet resultSet = preparedStatement.executeQuery(sql);
             while (resultSet.next()) {
                 contentVO = new ContentVO(
-                        resultSet.getString("newsIconUrl"),
-                        resultSet.getString("newsTitle"),
-                        resultSet.getString("newsContent"));
+                        resultSet.getString("contentImageURL"),
+                        resultSet.getString("contentTitle"),
+                        resultSet.getString("contentPrice"));
                 ls.add(contentVO);
             }
 
@@ -95,7 +95,7 @@ public class ContentDAO {
     public void updateAllNewsTitle(String updateString, int i) throws SQLException {
         Connection conn = getConnection();
 
-        String sql = "Update tb_course_info SET newsTitle = ? WHERE id = ?";
+        String sql = "Update tb_course_info SET contentTitle = ? WHERE id = ?";
 
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
@@ -108,7 +108,7 @@ public class ContentDAO {
     public void updateAllNewsContent(String updateString, int i) throws SQLException {
         Connection conn = getConnection();
 
-        String sql = "Update tb_course_info SET newsContent = ? WHERE id = ?";
+        String sql = "Update tb_course_info SET contentPrice = ? WHERE id = ?";
 
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
 

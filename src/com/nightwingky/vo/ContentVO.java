@@ -6,50 +6,50 @@ package com.nightwingky.vo;
 
 public class ContentVO {
 
-    private String newsIconUrl;
-    private String newsTitle;
-    private String newsContent;
+    private String contentImageURL;
+    private String contentTitle;
+    private String contentPrice;
 
     public ContentVO() {
     }
 
-    public ContentVO(String newsIconUrl, String newsTitle, String newsContent) {
-        this.newsIconUrl = newsIconUrl;
-        this.newsTitle = newsTitle;
-        this.newsContent = newsContent;
+    public ContentVO(String contentImageURL, String contentTitle, String contentPrice) {
+        this.contentImageURL = contentImageURL;
+        this.contentTitle = contentTitle;
+        this.contentPrice = contentPrice;
     }
 
-    public String getNewsIconUrl() {
-        return newsIconUrl;
+    public String getContentImageURL() {
+        return contentImageURL;
     }
 
-    public void setNewsIconUrl(String newsIconUrl) {
-        this.newsIconUrl = newsIconUrl;
+    public void setContentImageURL(String contentImageURL) {
+        this.contentImageURL = contentImageURL;
     }
 
-    public String getNewsTitle() {
-        return newsTitle;
+    public String getContentTitle() {
+        return contentTitle;
     }
 
-    public void setNewsTitle(String newsTitle) {
-        this.newsTitle = newsTitle;
+    public void setContentTitle(String contentTitle) {
+        this.contentTitle = contentTitle;
     }
 
-    public String getNewsContent() {
-        return newsContent;
+    public String getContentPrice() {
+        return contentPrice;
     }
 
-    public void setNewsContent(String newsContent) {
-        this.newsContent = newsContent;
+    public void setContentPrice(String contentPrice) {
+        this.contentPrice = contentPrice;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(
-                "newsIconUrl='" + newsIconUrl + '\'' +
-                ", newsTitle='" + newsTitle + '\'' +
-                ", newsContent='" + newsContent + '\''
+                "contentImageURL='" + contentImageURL + '\'' +
+                ", contentTitle='" + contentTitle + '\'' +
+                ", contentPrice='" + contentPrice + '\''
         );
 
         return stringBuilder.toString();

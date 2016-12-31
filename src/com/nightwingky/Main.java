@@ -37,17 +37,21 @@ public class Main {
             }
         }
 
-        for (int i = 0; i < mList.size(); i++) {
+        for (int i = 0; i <= mList.size(); i++) {
             try {
-                contentDAO.updateAllNewsContent("Content" + i, i);
+                contentDAO.updateAllNewsContent("Price:" + (double) i, i);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
 
         mList = contentDAO.quertAll();
-        for (int i = 0; i <= mList.size(); i++) {
+        for (int i = 0; i < mList.size(); i++) {
             System.out.println(mList.get(i));
+        }
+
+        for (int i = 0; i < mList.size(); i++) {
+            contentDAO.addStudent(mList.get(i));
         }
     }
 }
