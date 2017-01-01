@@ -62,4 +62,17 @@ public class ItemDAO extends BaseDAO{
 
         preparedStatement.execute();
     }
+
+    public void updatePrice(String updateString, int i) throws SQLException {
+        Connection conn = getConnection();
+
+        String sql = "Update tb_item_info SET itemPrice = ? WHERE id = ?";
+
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+        preparedStatement.setString(1, updateString);
+        preparedStatement.setInt(2, i);
+
+        preparedStatement.execute();
+    }
 }

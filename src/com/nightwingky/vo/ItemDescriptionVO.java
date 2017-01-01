@@ -8,14 +8,16 @@ public class ItemDescriptionVO {
     private String itemContentTitle;
     private String itemPicURL;
     private String itemDescription;
+    private String itemPrice;
 
     public ItemDescriptionVO() {
     }
 
-    public ItemDescriptionVO(String itemContentTitle, String itemPicURL, String itemDescirption) {
+    public ItemDescriptionVO(String itemContentTitle, String itemPicURL, String itemDescription, String itemPrice) {
         this.itemContentTitle = itemContentTitle;
         this.itemPicURL = itemPicURL;
-        this.itemDescription = itemDescirption;
+        this.itemDescription = itemDescription;
+        this.itemPrice = itemPrice;
     }
 
     public String getItemContentTitle() {
@@ -42,15 +44,21 @@ public class ItemDescriptionVO {
         this.itemDescription = itemDescription;
     }
 
+    public String getItemPrice() {
+        return itemPrice;
+    }
+
+    public void setItemPrice(String itemPrice) {
+        this.itemPrice = itemPrice;
+    }
+
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("ItemDescriptionVO{" +
+        return "ItemDescriptionVO{" +
                 "itemContentTitle='" + itemContentTitle + '\'' +
                 ", itemPicURL='" + itemPicURL + '\'' +
                 ", itemDescription='" + itemDescription + '\'' +
-                '}');
-
-        return stringBuilder.toString();
+                ", itemPrice='" + itemPrice + '\'' +
+                '}';
     }
 }

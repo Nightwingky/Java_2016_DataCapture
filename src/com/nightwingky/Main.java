@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
 	// write your code here
 
         String content = HttpQuery.getQueryContent();
@@ -78,6 +78,10 @@ public class Main {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+
+        for (int i = 0; i <= itemList.size(); i++) {
+            itemDAO.updatePrice(String.valueOf((double) i), i);
         }
     }
 }

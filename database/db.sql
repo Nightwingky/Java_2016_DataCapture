@@ -22,3 +22,12 @@ CREATE TABLE tb_shoppingcart_info (
 SELECT * FROM tb_shoppingcart_info;
 
 UPDATE tb_shoppingcart_info SET commodityAmount = 1 where 1 = 1;
+
+CREATE TABLE tb_item_info (
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL ,
+  itemContentTitle VARCHAR(100),
+  itemPicURL VARCHAR(100),
+  itemDescription VARCHAR(100)
+)ENGINE=InnoDB DEFAULT CHARSET=gbk COLLATE=gbk_bin CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+SELECT * FROM tb_item_info;
