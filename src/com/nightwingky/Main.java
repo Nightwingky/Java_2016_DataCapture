@@ -21,7 +21,7 @@ public class Main {
         ContentDAO contentDAO = new ContentDAO();
 
 //        for (int i = 0; i < mList.size(); i++) {
-//            contentDAO.addStudent(mList.get(i));
+//            contentDAO.addContent(mList.get(i));
 //        }
 //
 //        mList = contentDAO.quertAll();
@@ -39,7 +39,7 @@ public class Main {
 
         for (int i = 0; i <= mList.size(); i++) {
             try {
-                contentDAO.updateAllNewsContent("Price:" + (double) i, i);
+                contentDAO.updateAllNewsContent(String.valueOf((double) i), i);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -51,7 +51,7 @@ public class Main {
         }
 
         for (int i = 0; i < mList.size(); i++) {
-            contentDAO.addStudent(mList.get(i));
+            contentDAO.addContent(mList.get(i));
         }
     }
 }

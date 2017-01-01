@@ -8,3 +8,17 @@ CREATE TABLE tb_course_info (
   contentTitle VARCHAR(100),
   contentPrice VARCHAR(100)
 );
+
+show CREATE TABLE tb_course_info;
+
+CREATE TABLE tb_shoppingcart_info (
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL ,
+  commodityImageURL VARCHAR(100),
+  commodityTitle VARCHAR(100),
+  commodityPrice VARCHAR(100),
+  commodityAmount VARCHAR(10)
+)ENGINE=InnoDB DEFAULT CHARSET=gbk COLLATE=gbk_bin CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+SELECT * FROM tb_shoppingcart_info;
+
+UPDATE tb_shoppingcart_info SET commodityAmount = 1 where 1 = 1;

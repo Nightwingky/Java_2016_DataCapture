@@ -36,7 +36,7 @@ public class ContentDAO {
         }
     }
 
-    public void addStudent(ContentVO contentVO) {
+    public void addContent(ContentVO contentVO) {
         Connection conn = getConnection();
 
         try {
